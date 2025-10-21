@@ -2,13 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Entrepreneur, CreateEntrepreneurRequest, UpdateEntrepreneurRequest } from '../../../shared/interface/entrepreneur.interface';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrepreneurService {
   private http = inject(HttpClient);
-  private apiUrl = `http://localhost:8080/api/v1/entrepreneurs`;
+  private apiUrl = `${environment.api.url}/entrepreneurs`;
 
   /**
    * Listar todos os entrepreneurs

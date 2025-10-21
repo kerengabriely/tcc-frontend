@@ -9,7 +9,7 @@ import { Administrator, CreateAdministratorRequest, UpdateAdministratorRequest }
 })
 export class AdministratorService {
   private http = inject(HttpClient);
-  private apiUrl = `http://localhost:8080/api/v1/administrators`;
+  private apiUrl = `${environment.api.url}/administrators`;
 
   /**
    * Listar todos os administrators

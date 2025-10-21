@@ -5,6 +5,6 @@
 export const environment = {
   production: false,
   api: {
-    url: '?',
+    url: 'https://tcc-backend-production-9f80.up.railway.app',
   }
 };
