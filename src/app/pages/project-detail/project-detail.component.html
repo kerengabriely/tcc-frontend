@@ -1,0 +1,40 @@
+<section class="hero slogan">
+  <div class="container">
+    <h1>{{ project?.title || 'Título do Projeto' }}</h1>
+    <p>
+      <a [routerLink]="['/perfil-entrepreneur', project?.entrepreneur?.id || '1']" class="link-empresa">
+        {{ project?.entrepreneur?.companyName || 'Empresa não informada' }}
+      </a>
+    </p>
+  </div>
+</section>
+
+<section class="project-detail">
+  <div class="container">
+    <div class="detail-card">
+      <h3>Descrição do Projeto</h3>
+      <p>
+        {{ project?.description || 'Texto descritivo do projeto não informado.' }}
+      </p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Habilidades Necessárias</h3>
+      <p>
+        {{ project?.requirements || 'Texto descritivo do projeto não informado.' }}
+      </p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Prazo Limite</h3>
+      <p>{{ project?.deadLine ? (project?.deadLine | date:'dd/MM/yyyy') : 'Prazo não informado.' }}</p>
+    </div>
+
+    <div class="hero-actions">
+      <button class="btnVoltar cursor-pointer" (click)="goBack()">Voltar</button>
+      <button pButton label="Tenho Interesse" class="p-button-rounded btnComecar" (click)="openProposalModal()"></button>
+    </div>
+  </div>
+</section>
+
+<app-solution-proposal [(visible)]="proposalVisible" [project]="project"   (submit)="onSubmitProposal($event)"></app-solution-proposal>

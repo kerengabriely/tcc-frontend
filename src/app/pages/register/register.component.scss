@@ -1,0 +1,186 @@
+/* Reutilizar estilos do Login para garantir identidade visual */
+@use '../login/login.component.scss' as *;
+
+/* Container e card iguais ao Login */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: var(--surface-ground);
+  padding: 2rem;
+}
+
+.register-card {
+  width: 650px;
+  border-radius: 1.5rem !important;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Cabeçalho do card */
+.card-header {
+  text-align: center;
+  padding: 0.5rem 1rem 0.5rem;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    margin: 0;
+  }
+}
+
+/* Formulário: replicar layout do Login e impedir 100% de width fora do escopo */
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  input[pInputText] {
+    width: 100%;
+  }
+
+  .input-error {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+}
+
+/* Botão de ação dentro do card (escopo do formulário) */
+.register-container button[pButton] {
+  width: 100%;
+  border-radius: 2rem !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.9rem 0 !important;
+  background: var(--primary-color) !important;
+  border: none !important;
+}
+
+.register-container button[pButton]:hover:not(:disabled) {
+  background: var(--primary-color-hover) !important;
+}
+
+/* Header: garantir botões alinhados e que p-button-text se mantenha como texto */
+.header .actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.header .actions button[pButton] {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .actions .p-button-text {
+  background: transparent !important;
+  border: none !important;
+  color: #111930 !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+/* Footer fixo igual ao Login */
+.footer {
+  background-color: #111930;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.footer-nav a {
+  margin: 0 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: larger;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+.footer p {
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Extras do Register (profile selector), mantendo consistência */
+.profile-selector {
+  margin-bottom: 2rem;
+
+  .p-selectbutton .p-button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  :deep(.p-selectbutton .p-button:not(.p-highlight)) {
+    background: var(--surface-b);
+    border-color: var(--surface-d);
+    color: var(--text-color-secondary);
+    &:hover { background: var(--surface-c); }
+  }
+  :deep(.p-selectbutton .p-button.p-highlight) {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color-text);
+  }
+}
+
+.form-actions .login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-color-secondary);
+  a {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 0.5rem;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+/* Garantir que o width do card aplique sobre o componente PrimeNG */
+:host ::ng-deep .register-card {
+  width: 600px !important; /* força o aumento de 30% */
+}
+
+#typeProfile{
+  margin-bottom: 0;
+}
+@media (max-height: 700px) {
+  .register-container {
+    min-height: auto;
+    padding-top: 3rem; /* espaço extra acima do card */
+    padding-bottom: 100px; /* mais margem quando a altura é pequena */
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    width: 100% !important;
+    max-width: 360px;
+  }
+}

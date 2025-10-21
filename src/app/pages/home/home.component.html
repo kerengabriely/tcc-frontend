@@ -1,0 +1,205 @@
+<header class="header">
+  <div class="container">
+    <img class="logo" src="assets/images/logo.jpg" alt="TechStart Logo" />
+    <nav class="nav">
+      <a routerLink="/home" routerLinkActive="active">Início</a>
+      <a [routerLink]="['/home']" fragment="solucoes">Soluções</a>
+      <a [routerLink]="['/home']" fragment="empresas">Empresas</a>
+      <a [routerLink]="['/home']" fragment="estudantes">Estudantes</a>
+    </nav>
+    <div class="actions">
+      <button
+        pButton
+        label="Login"
+        class="p-button-text"
+        (click)="goToLogin()"
+      ></button>
+      <button
+        pButton
+        label="Registrar"
+        class="p-button-rounded btnRegistrar"
+        (click)="goToRegister()"
+      ></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero slogan">
+  <div class="container">
+    <h1>TechStart: Onde desenvolvedores e empresas se encontram</h1>
+    <p>
+      Conectando talentos e oportunidades para criação de soluções tecnologicas
+      e acessíveis
+    </p>
+    <div class="hero-actions">
+      <button
+        pButton
+        label="Começar"
+        class="p-button-rounded btnComecar"
+        (click)="goToRegister()"
+      ></button>
+    </div>
+  </div>
+</section>
+
+<section class="features solucoes" id="solucoes">
+  <div class="container">
+    <h1>Soluções</h1>
+    <p>
+      Na <b>TechStart</b>, conectamos talentos em tecnologia a empresas que
+      precisam de soluções inovadoras, rápidas e acessíveis. Seja você um
+      estudante buscando colocar suas habilidades em prática ou um profissional
+      autônomo querendo expandir seu portfólio, aqui você encontra oportunidades
+      reais de crescimento e aprendizado.
+    </p>
+
+    <div class="cards cardsHome">
+      <div class="card">
+        <div class="icon"><i class="pi pi-bolt"></i></div>
+        <h3>Conexão Inteligente</h3>
+        <p>
+          Um sistema que conecta empresas a profissionais e alunos
+          desenvolvedores com base nas habilidades necessárias.
+        </p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="pi pi-chart-bar"></i></div>
+        <h3>Gestão de Projetos</h3>
+        <p>
+          Ferramentas integradas para acompanhar o progresso de projetos e
+          aceite de propostas.
+        </p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="pi pi-star"></i></div>
+        <h3>Avaliação de Usuários</h3>
+        <p>
+          Segurança e promoção com base nas experiências entre empresas e devs,
+          assegurando maior clareza das partes.
+        </p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="pi pi-money-bill"></i></div>
+        <h3>Valor Competitivo</h3>
+        <p>
+          Liberdade para realizar a negociação de valores entre empresas e
+          profissionais, permitindo o melhor acordo e alcance da relação custo x
+          benefício.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits entrepreneurs paraEmpresas" id="empresas">
+  <div class="container">
+    <h1>Para Empresas</h1>
+    <p>
+      Para empresas, oferecemos acesso a uma rede de profissionais qualificados,
+      permitindo que seus projetos saiam do papel com eficiência e custo
+      reduzido. Para estudantes e desenvolvedores, garantimos experiências
+      práticas, aprendizado constante e remuneração justa.
+    </p>
+    <div class="cards cardsHome">
+      <div class="card">
+        <h3>Agilidade na busca por talentos</h3>
+        <p>
+          Conecte-se com desenvolvedores e estudantes preparados para atuar em
+          projetos de tecnologia de forma ágil.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Custos Reduzidos</h3>
+        <p>
+          Contrate profissionais autônomos para soluções específicas sem
+          precisar de grandes investimentos em equipe interna.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Flexibilidade na Contratação</h3>
+        <p>
+          Escolha entre projetos pontuais, por hora ou milestones, adaptando-se
+          às necessidades e prazos da empresa.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Transparência e Gerenciamento</h3>
+        <p>
+          Monitore o progresso dos projetos e entregas através da plataforma,
+          garantindo qualidade e prazos cumpridos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits students paraEstudantes" id="estudantes">
+  <div class="container">
+    <h1>Para Estudantes</h1>
+    <p>
+      Oferecemos a possibilidade de aumentar sua experiência e se destacar no
+      mercado diante de projetos pontuais as mais diversas empresas existentes
+      no mercado. Com isso você poderá construir um portifólio ainda melhor e
+      recebendo por isso!
+    </p>
+    <div class="cards cardsHome">
+      <div class="card">
+        <h3>Oportunidades</h3>
+        <p>
+          Acesse projetos de empresas que precisam de soluções tecnológicas e
+          ganhe experiência prática.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Flexibilidade</h3>
+        <p>
+          Trabalhe remotamente, escolha projetos que se encaixem na sua agenda e
+          defina seu próprio ritmo.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Remuneração</h3>
+        <p>
+          Receba pagamentos seguros e claros, com controle total sobre o que
+          você vai cobrar por cada trabalho realizado.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Networking</h3>
+        <p>
+          Construa relacionamentos valiosos com empresas e outros
+          desenvolvedores, abrindo portas para futuras oportunidades e
+          colaborações.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Junte-se a nós</h2>
+    <p>
+      Junte-se à comunidade TechStart e transforme ideias em soluções de
+      tecnologia!
+    </p>
+    <button
+      pButton
+      label="Começar"
+      class="p-button-rounded btnComecar"
+      (click)="goToRegister()"
+    ></button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <img class="logo" src="assets/images/logo.jpg" alt="TechStart Logo" />
+    <nav class="footer-nav">
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+      <a href="#">Privacidade</a>
+    </nav>
+  </div>
+  <p>&copy; 2025 TechStart. Todos os direitos reservados.</p>
+</footer>

@@ -1,0 +1,45 @@
+<div>
+  <section class="perfil-entrepreneur">
+    <div class="container">
+      <p-card class="empresa-card">
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <div class="empresa-info">
+              <h2>{{ entrepreneur?.companyName }}</h2>
+            </div>
+            <div class="avaliacao">
+              <div class="stars">
+                <i class="pi pi-star"></i>
+                <i class="pi pi-star"></i>
+                <i class="pi pi-star"></i>
+                <i class="pi pi-star"></i>
+                <i class="pi pi-star"></i>
+              </div>
+              <small class="ratings-count">{{ ratingsCount }} avaliações</small>
+            </div>
+          </div>
+        </ng-template>
+
+        <div class="conteudo">
+          <div class="secao">
+            <h3>Atuação da Empresa</h3>
+            <p>{{ entrepreneur?.description }}</p>
+          </div>
+
+          <div class="secao">
+            <h3>Dados cadastrais</h3>
+            <ul>
+              <li><strong>E-mail:</strong> {{ entrepreneur?.email  }}</li>
+              <li><strong>Telefone:</strong> {{ entrepreneur?.phone  }}</li>
+              <li><strong>Setor:</strong> {{ entrepreneur?.businessArea }}</li>
+            </ul>
+          </div>
+        </div>
+      </p-card>
+
+      <div class="hero-actions">
+        <button pButton label="Voltar" class="p-button-rounded btnRegistrar" (click)="goBack()"></button>
+      </div>
+    </div>
+  </section>
+</div>

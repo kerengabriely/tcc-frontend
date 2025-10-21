@@ -1,0 +1,169 @@
+.header {
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--border-color);
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.logo {
+  height: 40px;
+  border-radius: 6px;
+}
+.nav a {
+  margin: 0 0.75rem;
+  color: #111930;
+  font-size: larger;
+  font-weight: 600;
+  text-decoration: none;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero {
+  background: var(--primary-alpha-10);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.hero-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+section {
+  padding: 3rem 2rem;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  background-color: #e0f2fe ;
+}
+
+.card h3, .card p{
+    color: #0369a1 ;
+}
+.card .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--hover-bg);
+  margin: 0 auto 0.5rem;
+  background-color: #659dc0;
+}
+
+.card .icon i{
+    color: white;
+}
+
+.cta {
+  text-align: center;
+  background: var(--surface-ground);
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-nav a {
+  margin: 0 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: larger;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.footer p {
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.icon {
+  display: flex; /* ativa o Flexbox */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  height: 50px; /* altura da div, ajuste conforme necessário */
+  width: 50px; /* largura da div, ajuste conforme necessário */
+}
+
+.solucoes,
+.paraEstudantes {
+  background-color: rgb(244, 241, 241);
+}
+.solucoes,
+.paraEstudantes,
+.paraEmpresas {
+  padding: 80px;
+}
+.slogan,
+.footer {
+  background-color: #111930;
+}
+
+.slogan .container {
+  color: white;
+  padding: 50px;
+}
+
+.cardsHome {
+  padding-top: 30px;
+}
+
+.btnComecar {
+  padding: 15px 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.btnRegistrar{
+    padding: 10px 20px;
+}
