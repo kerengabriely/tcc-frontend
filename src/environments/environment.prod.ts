@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   api: {
     url: 'https://tcc-backend-production-9f80.up.railway.app',
   }
