@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -20,6 +20,8 @@ import { notBlankValidator } from '../../shared/validators/not-blank.validator';
   styleUrls: ['./project-detail.component.scss']
 })
 export class ProjectDetailComponent implements OnInit {
+  @ViewChild('proposalComponent') proposalComponent!: SolutionProposalComponent;
+
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private projectService = inject(ProjectService);
@@ -71,61 +73,6 @@ export class ProjectDetailComponent implements OnInit {
     this.router.navigate(['/projects']);
   }
 
-  // --- Mock helpers (reutilizando os mesmos dados da tela de projetos) ---
-  // private getMockProjects(): Project[] {
-  //   return [
-  //     {
-  //       id: '1',
-  //       title: 'Sistema de Gestão Acadêmica',
-  //       description: 'Desenvolver módulos para controle de cursos, alunos e matrículas.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-01-15',
-  //       entrepreneur: { id: '1', companyName: 'TechStart Solutions' } as any
-  //     },
-  //     {
-  //       id: '2',
-  //       title: 'E-commerce de Livros',
-  //       description: 'Criar plataforma de vendas com carrinho, checkout e administração.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-02-10',
-  //       entrepreneur: { id: '2', companyName: 'BookMarket Ltda.' } as any
-  //     },
-  //     {
-  //       id: '3',
-  //       title: 'App de Entregas',
-  //       description: 'Aplicativo mobile para roteirização de entregas com mapas e tracking.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-03-02',
-  //       entrepreneur: { id: '3', companyName: 'LogiTrack' } as any
-  //     },
-  //     {
-  //       id: '4',
-  //       title: 'Plataforma de Cursos Online',
-  //       description: 'Sistema com aulas gravadas, quizzes e certificação.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-04-20',
-  //       entrepreneur: { id: '4', companyName: 'EduPro' } as any
-  //     },
-  //     {
-  //       id: '5',
-  //       title: 'Dashboard de Finanças',
-  //       description: 'Visualização de KPIs financeiros, gráficos e relatórios.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-05-05',
-  //       entrepreneur: { id: '5', companyName: 'FinSight' } as any
-  //     },
-  //     {
-  //       id: '6',
-  //       title: 'Portal de Vagas Tech',
-  //       description: 'Portal de vagas com filtros, candidatura e área do candidato.',
-  //       status: 'OPEN',
-  //       creationDate: '2024-06-12',
-  //       entrepreneur: { id: '6', companyName: 'HireTech' } as any
-  //     }
-  //   ];
-  // }
-
-
   proposalVisible = false;
 
   openProposalModal(): void {
@@ -134,23 +81,17 @@ export class ProjectDetailComponent implements OnInit {
 
 
   onSubmitProposal(data: { title: string; description: string; value: number | null }): void {
-    const loggedStudentId = this.authService.getCurrentUser()?.sub;
     const selectedProjectId = this.selectedProjectId;
 
     const applicationData = {
-      idea: data.title,       // string
-      value: data.value || 0, // number, garante valor padrão
+      idea: data.title,       
+      value: data.value || 0, 
       idProject: selectedProjectId || ''  
     };
 
     this.applicationService.create(applicationData).subscribe({
       next: () => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Sucesso',
-          detail: 'Aplicação enviada com sucesso!'
-        });
-        this.proposalVisible = false; // fecha o modal
+        this.proposalComponent?.showSuccess();
       },
       error: (err) => {
         this.messageService.add({
@@ -161,5 +102,6 @@ export class ProjectDetailComponent implements OnInit {
       }
     });
   }
+
 
 }

@@ -34,7 +34,14 @@ export class SolutionProposalComponent {
   }
 
   submitProposal(): void {
-    this.submit.emit({ title: this.solutionTitle, description: this.solutionDescription, value: this.solutionValue });
+    this.submit.emit({ 
+      title: this.solutionTitle, 
+      description: this.solutionDescription, 
+      value: this.solutionValue 
+    });
+  }
+
+  showSuccess(): void {
     this.submitted = true;
   }
 }
