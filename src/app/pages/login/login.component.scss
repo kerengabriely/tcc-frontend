@@ -178,6 +178,11 @@ p-message {
     padding: 10px 20px;
 }
 
+.register-container button[pButton]:hover:not(:disabled) {
+  background: #54b3e2 !important; /* nova cor de fundo */
+  color: white !important;  
+}
+
 .hero-actions {
   margin-top: 1rem;
   display: flex;

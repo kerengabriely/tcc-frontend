@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:local": "ng serve --configuration=local",
     "start-prod": "npx serve --single ./dist/tvt-template-angular/browser -l $PORT",
     "build": "ng build",
     "build-prod": "ng build --configuration=production",
     "build-uat": "ng build --configuration=uat",
     "watch": "ng build --watch --configuration=development",
     "test": "ng test",
-    "lint": "ng lint",
-    "postinstall": "npm run build-prod"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -40,7 +40,7 @@
     "@angular/cli": "^19.0.0",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.18.12",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
