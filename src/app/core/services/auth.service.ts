@@ -22,8 +22,8 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private apiUrl = `http://localhost:8080/api/v1/users`;
-  private passwordApiUrl = `http://localhost:8080/api/v1/password`;
+  private apiUrl = `${environment.api.url}/users`;
+  private passwordApiUrl = `${environment.api.url}/password`;
 
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());

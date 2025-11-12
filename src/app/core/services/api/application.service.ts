@@ -9,7 +9,7 @@ import { Application, CreateApplicationRequest, UpdateApplicationRequest } from 
 })
 export class ApplicationService {
   private http = inject(HttpClient);
-  private apiUrl = `http://localhost:8080/api/v1/applications`;
+  private apiUrl = `${environment.api.url}/applications`;
 
   /**
    * Listar todos os applications
