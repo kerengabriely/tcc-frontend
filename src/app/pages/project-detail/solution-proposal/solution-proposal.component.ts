@@ -21,7 +21,8 @@ export class SolutionProposalComponent {
   @Output() visibleChange = new EventEmitter<boolean>();
 
   @Input() project: Project | null = null;
-  @Output() submit = new EventEmitter<{ title: string; description: string; value: number | null }>();
+  
+  @Output() proposalSubmit = new EventEmitter<{ title: string; description: string; value: number | null }>();
 
   private formBuilder = inject(FormBuilder);
 
@@ -29,13 +30,14 @@ export class SolutionProposalComponent {
   solutionDescription = '';
   solutionValue: number | null = null;
   submitted = false;
+  loading = false;
 
   proposalForm!: FormGroup;
 
   ngOnInit(): void {
     this.proposalForm = this.formBuilder.group({
-      idea: ['', [Validators.required, notBlankValidator(), Validators.maxLength(100)]],
-      value: ['', [Validators.required, notBlankValidator(), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      idea: ['', [Validators.required, notBlankValidator(), Validators.minLength(100)]],
+      value: [null, [Validators.required, Validators.min(0.01)]],
     });
   }
 
@@ -53,13 +55,22 @@ export class SolutionProposalComponent {
       return;
     }
 
-    const { idea, value } = this.proposalForm.value;
+      const { idea, value } = this.proposalForm.value;
+        this.proposalSubmit.emit({
+          title: idea,
+          description: idea,
+          value
+        });
+      }
 
-    this.submit.emit({ title: idea, description: idea, value });
-    this.showSuccess();
-  }
-
+  // Chamado pelo pai quando a requisição deu certo
   showSuccess(): void {
     this.submitted = true;
+  }
+
+  // Chamado pelo pai quando a requisição falhou (opcional)
+  resetForm(): void {
+    this.submitted = false;
+    this.loading = false;
   }
 }

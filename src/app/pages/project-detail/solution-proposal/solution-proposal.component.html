@@ -19,14 +19,15 @@
   <form [formGroup]="proposalForm" (ngSubmit)="submitProposal()" *ngIf="!submitted; else successTpl">
     <div class="detail-card">
       <h3>Solução ofertada</h3>
-      <input
+      <textarea
         pInputText
         formControlName="idea"
         placeholder="Informe a sua ideia de solução"
-      />
+        class="w-full"
+      ></textarea>
       <div *ngIf="proposalForm.get('idea')?.invalid && proposalForm.get('idea')?.touched" class="input-error">
         <small *ngIf="proposalForm.get('idea')?.hasError('required')">Ideia é obrigatória.</small>
-        <small *ngIf="proposalForm.get('idea')?.hasError('maxlength')">Ideia deve ter no máximo 100 caracteres.</small>
+        <small *ngIf="proposalForm.get('idea')?.hasError('minlength')">Ideia deve ter no mínimo 100 caracteres.</small>
       </div>
     </div>
 
@@ -38,8 +39,17 @@
         currency="BRL"
         [minFractionDigits]="2"
         [maxFractionDigits]="2"
+        [useGrouping]="true"
+        [showButtons]="false"
+        placeholder="Informe o valor"
+        [allowEmpty]="true"
+        (blur)="proposalForm.get('value')?.markAsTouched()"
       ></p-inputNumber>
-      <div *ngIf="proposalForm.get('value')?.invalid && proposalForm.get('value')?.touched" class="input-error">
+
+      <div
+        *ngIf="proposalForm.get('value')?.invalid && proposalForm.get('value')?.touched"
+        class="input-error"
+      >
         <small *ngIf="proposalForm.get('value')?.hasError('required')">O valor é obrigatório.</small>
         <small *ngIf="proposalForm.get('value')?.hasError('min')">Informe um valor válido (maior que zero).</small>
       </div>
@@ -50,13 +60,15 @@
         pButton
         label="Cancelar"
         class="p-button-text btnVoltar"
+        type="button"
         (click)="close()"
       ></button>
       <button
         pButton
         label="Enviar solução proposta"
+        [disabled]="proposalForm.invalid || loading"
         class="p-button-rounded btnComecar"
-        (click)="submitProposal()"
+        type="submit"
       ></button>
     </div>
   </form>

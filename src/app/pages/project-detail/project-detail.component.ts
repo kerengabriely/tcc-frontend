@@ -95,6 +95,8 @@ export class ProjectDetailComponent implements OnInit {
           summary: 'Erro',
           detail: err.error?.message || 'Falha ao enviar aplicação.'
         });
+
+        this.proposalComponent?.resetForm();
       }
     });
   }
